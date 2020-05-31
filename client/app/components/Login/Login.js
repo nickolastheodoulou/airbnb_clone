@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Component } from 'react';
 import firebase from "firebase";
 import StyledFirebaseUi from "react-firebaseui/StyledFirebaseAuth";
 import axios from 'axios';
@@ -56,7 +57,7 @@ class Login extends Component {
         }
     }
 
-    componentDiMount() {
+    componentDidMount() {
         // add a firebase auth listener
         firebase.auth().onAuthStateChanged(user => { // When the Auth changes
             this.setSate({isAuthenticated : !this.state.isAuthenticated}) // set variable isAuthenticated to
@@ -65,13 +66,13 @@ class Login extends Component {
 
     render() {
         return (
-            <>
+            <div>
                 <h3>Login</h3>
                 <StyledFirebaseUi
                     uiConfig = {uiConfig}
                     firebaseAuth = {firebase.auth()}
                 />
-            </>
+            </div>
         );
     }
 }
