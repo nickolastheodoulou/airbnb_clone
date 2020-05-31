@@ -14,7 +14,7 @@ var uiConfig = {
     callbacks: {
         signInSuccessWithAuthResult: function(authResult, redirectUrl) {
             // TOD: add api call to save user
-            axios.post('/api/auth/verifyUser', null, {params: {user: firebase.auth().currentUser}})
+            axios.post('/api/user/check', null, {params: {user: firebase.auth().currentUser}})
                 .then(res => {
                     console.log(res)
                 });
@@ -28,7 +28,7 @@ var uiConfig = {
         // }
     },
     // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-    signInFlow: 'redirect',
+    signInFlow: 'popup',
     signInSuccessUrl: '/',  // User wil be redirected to the home page
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
