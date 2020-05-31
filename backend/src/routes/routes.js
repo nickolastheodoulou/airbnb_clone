@@ -40,6 +40,16 @@ router.route('/api/post/create').post(function (req, res) {
         })
 });
 
+router.route('/api/post/list').get(function (req, res) {
+    postFunc.listPost()
+        .then(result => {
+            res.json(result)
+        })
+        .catch(error =>{
+            res.json(error)
+        })
+});
+
 
 module.exports = router;
 

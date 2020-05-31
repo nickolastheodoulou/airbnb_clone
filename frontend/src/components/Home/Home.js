@@ -12,9 +12,9 @@ class Home extends Component {
 
   render() {
     return (
-      <>
-            <h3>Welcome to the airbnb simcoder's clone tutorial!</h3>            
-      </>
+        <div>
+          <h3>Welcome to Nicks listing website! </h3>
+        </div>
     );
   }
 }

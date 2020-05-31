@@ -37,4 +37,24 @@ module.exports = {
             reject(error)
         });
     }),
-}
+
+    listPost: () => new Promise((resolve, reject) => {
+        postModel.find()
+            .then(result => {
+                resolve({
+                    code: 200,
+                    success: true,
+                    message: 'Posts found successfully',
+                    post_list: result
+                })
+            }).catch(error => {
+            console.log(error)
+            reject({
+                code: 400,
+                success: false,
+                message: 'failed to list Posts',
+                error: error,
+            })
+        })
+    })
+};

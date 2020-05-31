@@ -6,21 +6,23 @@ import './styles.css';
 
 import Home from "./components/Home/Home";
 import Create from "./components/Post/Create";
+import List from "./components/Post/List";
 import Login from "./components/Login/Login";
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 function App() {
-  return (
-    <>
-      <Router>
-        <Header />
-        <Route exact path="/Login" component={Login} />
-        <Route exact path="/create" component={Create} />
-        <Route exact path="/" component={Home} />
-      </Router>
-      <Footer />
-    </>
-  );
+    return (
+        <div>
+            <Router>
+                <Header />
+                <Route exact path="/Login" component={Login} />
+                <Route exact path="/create" component={Create} />
+                <Route exact path="/list" component={List} />
+                <Route exact path="/" component={Home} />
+            </Router>
+            <Footer />
+        </div>
+    );
 }
 export default App;
