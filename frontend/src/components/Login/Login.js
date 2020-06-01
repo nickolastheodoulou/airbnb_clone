@@ -10,16 +10,21 @@ firebase.initializeApp(firebaseConfig)
 var uiConfig = {
   callbacks: {
     //After user signs in this function is called
+    //
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
       console.table(firebase.auth().currentUser)
-      axios.post('http://127.0.0.1:6200/api/user/check', null, { params: { user: firebase.auth().currentUser } })
-        .then(res => {
-          console.log(res)
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      return true;
+      firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+        axios.post('http://127.0.0.1:6200/api/user/check', null, { params: { user: firebase.auth().currentUser, idToken } })
+            .then(res => {
+              console.log(res)
+            })
+            .catch(error => {
+              console.log(error)
+            });
+        return true;
+      }).catch(error => {
+        console.log(error)
+      })
     }
   },
   signInFlow: 'popup',

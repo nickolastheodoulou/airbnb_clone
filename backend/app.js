@@ -4,6 +4,17 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
+var serviceAccount = require("./config/config.js").serviceAccount;
+var databaseURL = require("./config/config.js").databaseURL;
+var admin = require('firebase-admin');
+
+
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL
+});
+
+
 //server configuration
 var basePath = '/';
 var port = 6200;

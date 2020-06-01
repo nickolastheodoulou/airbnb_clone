@@ -10,6 +10,7 @@ COPY package*.json ./
 RUN npm install --verbose
 
 COPY ./src ./src
+COPY ./config ./config
 COPY app.js ./
 
 RUN npm install -g nodemon
