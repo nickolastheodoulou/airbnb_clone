@@ -3,3 +3,25 @@
   margin-bottom: 40px;
   
 }
+
+a{
+  text-decoration: none !important;
+}
+
+.post-reserve-button{
+  background-color: salmon !important;
+  color: white !important;
+}
+
+.AppBar{
+  background-color: white !important;
+  color: black !important;
+}
+.AppBar-title{
+  color: black !important;
+}
+
+.AppBar-Login{
+  background-color: white !important;
+
+}
